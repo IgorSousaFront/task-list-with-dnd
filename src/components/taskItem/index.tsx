@@ -4,10 +4,11 @@ import { useContext, useRef } from 'react';
 import { FiCheck, FiTrash2, FiRotateCcw } from "react-icons/fi";
 import { MdDragIndicator } from "react-icons/md";
 // Styles
-import styles from './index.module.css';
+import * as S from './styles'
 // Context
 import { TaskListContext } from '../../context/tasklist';
 import { useDrag, useDrop } from 'react-dnd';
+// Types
 import { ITaskListContextValueProps } from '../../context/types';
 
 interface ITaskItemProps {
@@ -32,7 +33,7 @@ export default function TaskItem({
   
   const ref = useRef<any>(null);
 
-  const [{ isDragging }, dragRef] = useDrag({
+  const [, dragRef] = useDrag({
     type: 'CARD',
     item: {
       id,
@@ -75,20 +76,16 @@ export default function TaskItem({
   dragRef(dropRef(ref));
 
   return (
-    <div
+    <S.TaskItem
       ref={ref}
       data-uuid={id}
-      className={`
-        ${styles.taskItem}
-        ${finished && styles.finished}
-        ${isDragging && styles.isDragging}
-      `}
+      $isFinished={finished}
     >
-      <div className={styles.title}>
+      <S.TaskItemTitle>
         <MdDragIndicator size={22}/>
         <span>{title}</span>
-      </div>
-      <div className={styles.buttons}>
+      </S.TaskItemTitle>
+      <S.Buttons>
         {!finished ? (
           <>
             <button
@@ -112,7 +109,7 @@ export default function TaskItem({
             <FiRotateCcw size="22" color="#22ae16" />
           </button>
         )}
-      </div>
-    </div>
+      </S.Buttons>
+    </S.TaskItem>
   )
 }

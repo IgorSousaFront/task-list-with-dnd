@@ -1,7 +1,7 @@
 // React
 import { useState, useContext, type FormEvent } from "react";
 // Styles
-import styles from './index.module.css'
+import * as S from './styles'
 // Context
 import { TaskListContext } from "../../context/tasklist";
 // Icons
@@ -26,9 +26,10 @@ export default function AddTask() {
   }
 
   return (
-    <form onSubmit={(e: FormEvent<HTMLFormElement>) => addNewTask(e)} className={styles.inputWrapper}>
-      <input
-        className={styles.inputTextField}
+    <S.InputWrapper
+      onSubmit={(e: FormEvent<HTMLFormElement>) => addNewTask(e)}
+    >
+      <S.InputTextField
         type="text"
         value={value}
         placeholder="Dê um título para a tarefa"
@@ -38,14 +39,14 @@ export default function AddTask() {
           }
         }
       />
-      <button className={styles.inputSubmit} type="submit">
-        <span className={styles.addTitle}>
+      <S.InputSubmit>
+        <span className="addTitle">
           Adicionar Tarefa
         </span>
-        <div className={styles.addIcon}>
+        <div className="addIcon">
           <FiPlus size={22}/>
         </div>
-      </button>
-    </form>
+      </S.InputSubmit>
+    </S.InputWrapper>
   )
 }
