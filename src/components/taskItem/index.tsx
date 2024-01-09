@@ -7,18 +7,30 @@ import { MdDragIndicator } from "react-icons/md";
 import styles from './index.module.css';
 // Context
 import { TaskListContext } from '../../context/tasklist';
-
 import { useDrag, useDrop } from 'react-dnd';
+import { ITaskListContextValueProps } from '../../context/types';
+
+interface ITaskItemProps {
+  title: string
+  order: number
+  id: string,
+  finished?: boolean
+}
 
 export default function TaskItem({
   title,
   order,
   id,
   finished
-}) {
-  const { removeTask, finishTask, reopen, reorderList } = useContext(TaskListContext);
-
-  const ref = useRef();
+}: ITaskItemProps) {
+  const {
+    removeTask,
+    finishTask,
+    reopen,
+    reorderList
+  } = useContext(TaskListContext) as ITaskListContextValueProps;
+  
+  const ref = useRef<any>(null);
 
   const [{ isDragging }, dragRef] = useDrag({
     type: 'CARD',
@@ -33,7 +45,7 @@ export default function TaskItem({
 
   const [, dropRef] = useDrop({
     accept: 'CARD',
-    hover(item, monitor) {
+    hover(item: any, monitor: any) {
       const draggedIndex = item.order;
       const targetIndex = order;
 

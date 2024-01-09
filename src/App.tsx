@@ -1,18 +1,15 @@
 // React
-import { useContext, useEffect } from 'react';
-
+import { useContext } from 'react';
 // Components
 import Title from './components/title';
 import AddTask from './components/addTask';
 import TaskItem from './components/taskItem';
-
 // Context
 import { TaskListContext } from './context/tasklist';
+import type { ITaskListContextValueProps, ITaskProps } from './context/types';
 
 function App() {
-  const { taskList } = useContext(TaskListContext)
-
-  useEffect(() => console.log('TASKLIST: ', taskList), [taskList])
+  const { taskList } = useContext(TaskListContext) as ITaskListContextValueProps
 
   return (
     <div className="App">
@@ -25,9 +22,14 @@ function App() {
           <>
             <Title>Lista de tarefas</Title>
             <ul className="task-list">
-              {taskList.map((task, idx) => (
+              {taskList.map((task: ITaskProps, idx: number) => (
                 <li key={idx}>
-                  <TaskItem order={idx} title={task.title} id={task.id} finished={task.finished} />
+                  <TaskItem
+                    order={idx}
+                    title={task.title}
+                    id={task.id}
+                    finished={task.finished}
+                  />
                 </li>
               ))}
             </ul>

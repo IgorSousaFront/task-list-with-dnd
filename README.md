@@ -31,3 +31,4 @@ Technologies used in the project:
 *   React
 *   react-dnd
 *   Create-react-app
+*   Typescript
