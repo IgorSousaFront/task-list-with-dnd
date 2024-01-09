@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+// React
+import { useContext, useEffect } from 'react';
+
+// Components
+import Title from './components/title';
+import AddTask from './components/addTask';
+import TaskItem from './components/taskItem';
+
+// Context
+import { TaskListContext } from './context/tasklist';
 
 function App() {
+  const { taskList } = useContext(TaskListContext)
+
+  useEffect(() => console.log('TASKLIST: ', taskList), [taskList])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <div className="header-title">
+          <Title>Adicionar tarefa</Title>
+        </div>
+        <AddTask />
+        {taskList.length > 0 && (
+          <>
+            <Title>Lista de tarefas</Title>
+            <ul className="task-list">
+              {taskList.map((task, idx) => (
+                <li key={idx}>
+                  <TaskItem order={idx} title={task.title} id={task.id} finished={task.finished} />
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,58 @@
+.inputWrapper {
+  display: flex;
+  gap: 1rem;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    position: initial;
+  }
+}
+
+.inputSubmit {
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.inputSubmit .addIcon {
+  display: block;
+  
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.inputSubmit .addTitle {
+  display: none;
+  
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.inputTextField,
+.inputSubmit {
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.25rem;
+  border: 2px solid var(--color-dark);
+  transition: all ease .3s;
+  color: var(--color-dark);
+  background: #FFFFFF;
+}
+
+.inputTextField {
+  width: 100%;
+  font-size: 1rem;
+}
+
+.inputTextField:hover,
+.inputTextField:focus,
+.inputSubmit:hover,
+.inputSubmit:focus {
+  box-shadow: 4px 4px 0 var(--color-dark);
+}
