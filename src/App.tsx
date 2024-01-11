@@ -1,5 +1,5 @@
 // React
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 // Components
 import Title from './components/title';
 import AddTask from './components/addTask';
@@ -9,7 +9,7 @@ import { TaskListContext } from './context/tasklist';
 import type { ITaskListContextValueProps, ITaskProps } from './context/types';
 
 function App() {
-  const { taskList } = useContext(TaskListContext) as ITaskListContextValueProps
+  const { taskList } = useContext(TaskListContext) as ITaskListContextValueProps;
 
   return (
     <div className="App">

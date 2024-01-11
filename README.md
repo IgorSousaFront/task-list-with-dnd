@@ -8,7 +8,7 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://raw.githubusercontent.com/IgorSousaFront/task-list-with-dnd/main/public/screenshot-02.png" alt="project-screenshot" width="800" height="400/">
+<img src="https://raw.githubusercontent.com/IgorSousaFront/task-list-with-dnd/main/public/screenshot-02.png" alt="project-screenshot" width="800" height="auto">
 
   
   

@@ -4,7 +4,8 @@
   --color-light: #f8f8f8;
   --color-dark: #686868;
   --color-disabled: #cbcbcb;
-
+  --color-error: #db4343;
+  --color-success: #22ae16;
   --media-md: 992px;
 }
 

@@ -1,5 +1,5 @@
 // React
-import { useState, useContext, type FormEvent } from "react";
+import { useState, useContext, type FormEvent, useEffect } from "react";
 // Styles
 import * as S from './styles'
 // Context
@@ -8,12 +8,23 @@ import { TaskListContext } from "../../context/tasklist";
 import { FiPlus } from "react-icons/fi";
 // Types
 import { ITaskListContextValueProps } from "../../context/types";
+import Toast, { ToastTypeEnum } from "../toast";
 
 export default function AddTask() {
-  const [value, setValue] = useState('');
   const { addTask } = useContext(TaskListContext) as ITaskListContextValueProps;
 
+  const [value, setValue] = useState('');
+  const [showToast, setShowToast] = useState<boolean>(false);
+
   const clearText = () => setValue('')
+
+  useEffect(() => {
+    if(showToast) {
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
+    }
+  }, [showToast]);
 
   const addNewTask = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -21,7 +32,7 @@ export default function AddTask() {
       addTask(value);
       clearText();
     } else {
-      alert('O campo está vazio')
+      setShowToast(true);
     }
   }
 
@@ -31,6 +42,7 @@ export default function AddTask() {
     >
       <S.InputTextField
         type="text"
+        data-testid="addtask-inputfield"
         value={value}
         placeholder="Dê um título para a tarefa"
         onChange={
@@ -39,7 +51,7 @@ export default function AddTask() {
           }
         }
       />
-      <S.InputSubmit>
+      <S.InputSubmit data-testid="addtask-submit">
         <span className="addTitle">
           Adicionar Tarefa
         </span>
@@ -47,6 +59,13 @@ export default function AddTask() {
           <FiPlus size={22}/>
         </div>
       </S.InputSubmit>
+
+      <Toast
+        data-testid="toast-error-message"
+        type={ToastTypeEnum.ERROR}
+        visible={showToast}
+        message="Não é possível criar tarefas sem título."
+      />
     </S.InputWrapper>
   )
 }

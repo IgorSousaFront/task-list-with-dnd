@@ -56,3 +56,14 @@ export const InputSubmit = styled.button`
     }
   }
 `
+
+export const ToastList = styled.div`
+  position: fixed;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  > div {
+    margin-bottom: 20px;
+  }
+`
