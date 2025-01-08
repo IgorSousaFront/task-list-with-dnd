@@ -1,37 +1,33 @@
-<h1 align="center" id="title">O todo list mais simples do mundo</h1>
+# The most simples todo list on the web
 
-<h2>Heres the link to <a href="https://task-list-with-dnd.vercel.app/">DEMO</a></h2>
+## Here's the link to [demo](https://task-list-with-dnd.vercel.app/)
 
-<p align="center"><img src="https://raw.githubusercontent.com/IgorSousaFront/task-list-with-dnd/main/public/screenshot-01.png" alt="project-image"></p>
+![Project Image](https://raw.githubusercontent.com/IgorSousaFront/task-list-with-dnd/main/public/screenshot-01.png)
 
-<p id="description">Usando uma cassetada de ferramenta do frontend pra fazer o todo list mais simples do mundo! Over engineering.</p>
+Using a bunch of frontend tools to make the simplest todo list ever! ! Over engineering.
 
-<h2>🚀 Demo</h2>
+## 🚀 Demo
 
-<h2>Project Screenshots:</h2>
+## Project Screenshots:
 
-<img src="https://raw.githubusercontent.com/IgorSousaFront/task-list-with-dnd/main/public/screenshot-02.png" alt="project-screenshot" width="800" height="auto">
+![Project Screenshot](https://raw.githubusercontent.com/IgorSousaFront/task-list-with-dnd/main/public/screenshot-02.png)
 
-  
-  
-<h2>🧐 Features</h2>
+## 🧐 Features
 
-Here're some of the project's best features:
+Here are some of the project's best features:
 
-*   create task
-*   finish task
-*   reopen task
-*   delete task
-*   reorder items
+- Create task
+- Finish task
+- Reopen task
+- Delete task
+- Reorder items
 
-  
-  
-<h2>💻 Built with</h2>
+## 💻 Built with
 
 Technologies used in the project:
 
-*   React
-*   react-dnd
-*   Create-react-app
-*   Typescript
-*   Styled-components
+- React
+- react-dnd
+- Create-react-app
+- Typescript
+- Styled-components
